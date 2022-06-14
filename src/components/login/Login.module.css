@@ -1,0 +1,30 @@
+.login {
+    position: relative;
+    width: 1440px;
+    height: 1024px;
+    background: #fdfdfd;
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+
+    position: absolute;
+    width: 412px;
+    height: 362px;
+    left: 514px;
+    top: 331px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    background: #dc0b35;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
