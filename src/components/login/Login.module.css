@@ -1,6 +1,6 @@
 .login {
     position: relative;
-    width: 1440px;
+    width: 1920px;
     height: 1024px;
     background: #fdfdfd;
 }
@@ -12,15 +12,120 @@
     align-items: center;
     padding: 0px;
     gap: 40px;
-
     position: absolute;
     width: 412px;
     height: 362px;
-    left: 514px;
+    left: 754px;
     top: 331px;
 }
 
-.logo {
+.inputs__textfield {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 16px;
+    gap: 16px;
+
+    width: 412px;
+    height: 64px;
+
+    background: #ffffff;
+
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.textfield_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 2px;
+
+    width: 380px;
+    height: 35px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+.inputs__textfield input {
+    width: 48px;
+    height: 19px;
+
+    font-family: "Prompt";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+
+    color: #2b2b2b;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.inputs__textfield label {
+    width: 31px;
+    height: 14px;
+
+    font-family: "Commissioner";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+
+    color: #808080;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.icons__showpassword {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 18.75%;
+    bottom: 18.75%;
+
+    background: #808080;
+}
+
+.loginform__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    gap: 10px;
+
+    width: 412px;
+    height: 64px;
+
+    background: #fdbc11;
+
+    box-shadow: 0px -2px 18px rgba(128, 128, 128, 0.1);
+    border-radius: 4px;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+    border: none;
+}
+
+.loginform__logo {
     width: 70px;
     height: 70px;
     background: #dc0b35;
