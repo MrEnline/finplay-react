@@ -11,12 +11,21 @@
     justify-content: center;
     align-items: center;
     padding: 0px;
-    gap: 40px;
+    gap: 20px;
     position: absolute;
     width: 412px;
     height: 362px;
     left: 754px;
     top: 331px;
+}
+
+.loginform__logo {
+    width: 70px;
+    height: 70px;
+    background: #dc0b35;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .inputs__textfield {
@@ -43,56 +52,38 @@
 }
 
 .textfield_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 2px;
-
     width: 380px;
     height: 35px;
-
-    flex: none;
-    order: 0;
-    flex-grow: 1;
 }
 
-.inputs__textfield input {
-    width: 48px;
-    height: 19px;
-
-    font-family: "Prompt";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 120%;
-
-    color: #2b2b2b;
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+.textfield_content input {
+    width: 100%; /* Ширина поля */
+    box-sizing: border-box; /* Ширина не учитывает padding */
+    padding: 0.5rem 0; /* Поля вокруг текста */
+    border: none; /* Убираем рамку */
+    background: transparent; /* Прозрачный фон */
 }
 
-.inputs__textfield label {
-    width: 31px;
-    height: 14px;
-
-    font-family: "Commissioner";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-
-    color: #808080;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+.textfield_content input:focus {
+    outline: none; /* Убираем контур */
+    border-color: #1976d2; /* Синяя линия снизу */
 }
 
-.icons__showpassword {
+.textfield_content label {
+    display: block; /* Блочный элемент */
+    color: #aaa; /* Цвет подсказки */
+    transform: translateY(-1.5rem); /* Сдвигаем вверх */
+    line-height: 1rem; /* Межстрочный интервал */
+    transition: 0.5s; /* Время трансформации */
+}
+
+.textfield_content input:focus + label,
+.textfield_content input:valid + label {
+    font-size: 10px; /* Размер шрифта */
+    transform: translateY(-2.5rem); /* Сдвигаем вверх */
+}
+
+.textfield_content img {
     position: absolute;
     left: 0%;
     right: 0%;
@@ -125,11 +116,12 @@
     border: none;
 }
 
-.loginform__logo {
-    width: 70px;
-    height: 70px;
-    background: #dc0b35;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+.loginform__spinner_loading {
+    animation: rotate 3.5s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
 }
