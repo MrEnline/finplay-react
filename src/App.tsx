@@ -5,15 +5,15 @@ import Login from "./components/login/Login";
 
 function App() {
     return (
-        <Router>
-            <div className="App">
-                <Login />
-                <Routes>
-                    <Route path="/" element={<Login />} />
-                </Routes>
-            </div>
-        </Router>
-        // <Login />
+        // <Router>
+        //     <div className="App">
+        //         <Login />
+        //         <Routes>
+        //             <Route path="/" element={<Login />} />
+        //         </Routes>
+        //     </div>
+        // </Router>
+        <Login />
     );
 }
 

@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export const API_URL = "http://localhost:5000/api";
+export const API_URL = "http://localhost:5000/auth";
 
 // создаем экземпляр axios, который импортируется и с которым затем можно работать
 const $api = axios.create({

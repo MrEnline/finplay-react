@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Login.module.css";
 import Logo from "../assets/img/finnplay-logo.svg";
 import VisiblePassword from "../assets/img/visible-password.svg";
 import Spinner from "../assets/img/spinner.svg";
+import { Context } from "../../index";
 
 const Login = () => {
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
     const [visibleSpinner, setVisibleSpinner] = useState<boolean>(false);
+    const { store } = useContext(Context);
 
     function showHidePassword() {
         const input = document.querySelector(".password-input");
@@ -17,8 +21,9 @@ const Login = () => {
         }
     }
 
-    function showSpinner() {
+    function runAuth() {
         setVisibleSpinner(!visibleSpinner);
+        store.login(username, password);
     }
 
     return (
@@ -31,7 +36,14 @@ const Login = () => {
                 />
                 <div className={styles.inputs__textfield}>
                     <div className={styles.textfield_content}>
-                        <input type="text" name="login" id="login" required />
+                        <input
+                            type="text"
+                            name="login"
+                            id="login"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
                         <label htmlFor="login">Login</label>
                     </div>
                 </div>
@@ -42,6 +54,8 @@ const Login = () => {
                             type="password"
                             name="password"
                             id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                         <label htmlFor="password">Password</label>
@@ -52,10 +66,7 @@ const Login = () => {
                         onClick={showHidePassword}
                     />
                 </div>
-                <button
-                    className={styles.loginform__button}
-                    onClick={showSpinner}
-                >
+                <button className={styles.loginform__button} onClick={runAuth}>
                     {visibleSpinner ? (
                         <img
                             src={Spinner}
