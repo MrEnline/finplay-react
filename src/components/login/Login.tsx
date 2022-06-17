@@ -4,6 +4,8 @@ import Logo from "../assets/img/finnplay-logo.svg";
 import VisiblePassword from "../assets/img/visible-password.svg";
 import Spinner from "../assets/img/spinner.svg";
 import { Context } from "../../index";
+import { Link } from "react-router-dom";
+import { ADMIN, PLAYER } from "../../utils/Constants";
 
 const Login = () => {
     const [username, setUsername] = useState<string>("");
@@ -21,9 +23,25 @@ const Login = () => {
         }
     }
 
-    function runAuth() {
+    async function runAuth() {
         setVisibleSpinner(!visibleSpinner);
-        store.login(username, password);
+        await store.login(username, password);
+        if (localStorage.getItem(username)) {
+            setUsername(username);
+            setPassword(password);
+        } else {
+            setUsername("");
+            setPassword("");
+        }
+    }
+
+    function InitFirstPage() {
+        if (username === ADMIN) {
+            return <Link to="/admin" />;
+        }
+        if (username === PLAYER) {
+            return <Link to="/player" />;
+        }
     }
 
     return (

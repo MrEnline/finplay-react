@@ -1,20 +1,14 @@
-import {
-    Axios,
-    AxiosError,
-    AxiosInstance,
-    AxiosPromise,
-    AxiosResponse,
-    AxiosResponseHeaders,
-} from "axios";
+import { AxiosResponse } from "axios";
 import { IUser } from "../models/IUser";
 import AuthService from "../services/AuthService";
 import { AuthResponse } from "../models/response/AuthResponse";
+import axios from "axios";
 
 export default class Store {
     //user = {} as IUser;
     user = "";
-
     isAuth = false;
+    isLoading = false;
 
     // constructor() {
     //     makeAutoObservable(this);
@@ -34,6 +28,7 @@ export default class Store {
             console.log(response);
             //localStorage.setItem("token", response.data.accessToken);
             localStorage.setItem("token", response.data.token);
+            localStorage.setItem("username", response.data.username);
             this.setAuth(true);
             this.setUser(response.data.username);
         } catch (e: any) {
@@ -52,11 +47,11 @@ export default class Store {
         }
     }
 
-    // async checkAuth() {
-    //     try {
-
-    //     } catch (error) {
-
-    //     }
-    // }
+    async checkAuth() {
+        const username = localStorage.getItem("username");
+        if (username) {
+            this.setAuth(true);
+            this.setUser(username);
+        }
+    }
 }
